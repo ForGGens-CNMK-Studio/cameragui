@@ -60,7 +60,6 @@
 			const parts = buffer.split('--height');
 
 			for (const part of parts) {
-				console.log(part);
 				const match = part.match(/Content-Type: application\/json\r\n\r\n(.+?)\r\n/);
 				if (match) {
 					const data = JSON.parse(match[1]);
@@ -90,7 +89,7 @@
 			{#if heights.length > 0}
 				<ul>
 					{#each heights as height, index}
-						<li>Person {index + 1}: {height} cm</li>
+						<li>Person {index + 1}: {height['height']} m</li>
 					{/each}
 				</ul>
 			{:else}
